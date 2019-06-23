@@ -174,5 +174,18 @@
       will display a standard 404 page.
     </p>
   </div>
+<script>
+    $( document ).ready(function() {
+        if(!Cookies.get('age_verified')){
+            $('.age-overlay').show();
+        }
+
+        $('#age_verification_button').on('click', function(e){
+            Cookies.set('age_verified', true);
+            $('.age-overlay').hide();
+        });
+        console.log( "ready!" );
+    });
+</script>
 </body>
 </html>
