@@ -371,6 +371,25 @@
     <a href="#" class="scrollup"><i class="fa fa-angle-up"></i></a>
 </div>
 
+
+<div class="age-overlay" style="display:none;">
+    <div class="container">
+        <div class="row" >
+            <div class="col-xs-offset-4 col-xs-4 col-sm-12 col-sm-offset-0">
+                <img src="static/hootfamilyfarm/img/hoot-family-farm-logo.png" alt="" class="center-block img img-responsive" style="max-height:300px;">
+            </div>
+            <div class="clearfix"></div>
+            <p class="text-center">
+                We take pride in being a responsible provider of fine marijuana and cannabis products.
+                <br>As responsible providers we require that all visitors of our site are of the legal age to purchase our products.
+                <br>Please verify your age using the form below.</p>
+            <div class="divider"></div>
+            <h4 class="text-center">You must be at least 18 years old to enter our website.<br>By clicking the "ENTER SITE" button I agree that I am at least 18 years of age.</h4>
+            <button id="age_verification_button" class="btn btn-primary center-block">ENTER SITE</button>
+            <br>
+        </div>
+    </div>
+</div>
 <!-- The Scripts -->
 <script src="static/hootfamilyfarm/js/jquery.min.js"></script>
 <script src="static/hootfamilyfarm/js/bootstrap.js"></script>
@@ -393,7 +412,7 @@
 <script src="static/hootfamilyfarm/js/jquery.isotope.js"></script>
 <script src="static/hootfamilyfarm/js/portfolio.js"></script>
 <script src="static/hootfamilyfarm/js/spectrum.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
 <script src="static/hootfamilyfarm/js/custom.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
@@ -408,7 +427,19 @@
 <!-- End of HubSpot Embed Code -->
 
 
+<script>
+    $( document ).ready(function() {
+        if(!Cookies.get('age_verified')){
+            $('.age-overlay').show();
+        }
 
+        $('#age_verification_button').on('click', function(e){
+            Cookies.set('age_verified', true);
+            $('.age-overlay').hide();
+        });
+        console.log( "ready!" );
+    });
+</script>
 </body>
 
 <!-- Mirrored from localhost:8000/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 21 Jun 2019 13:45:15 GMT -->
